@@ -1,8 +1,11 @@
 import streamlit as st
 import google.generativeai as genai
+import os
 
-# APIキーの設定
-API_KEY = "AIzaSyD_u65YIMj_Iw9TQ4NrJcSMx5tXGscn8jE"
+# APIキーを環境変数 or Streamlit Secrets から取得
+API_KEY = os.getenv("GEMINI_API_KEY", st.secrets["GEMINI_API_KEY"])
+
+# Gemini APIの設定
 genai.configure(api_key=API_KEY)
 
 # Streamlit UIの設定
